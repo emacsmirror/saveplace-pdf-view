@@ -58,8 +58,9 @@ persisted bookmark under SAVE-PLACE-ALIST-KEY."
     (when (and cell
                (vectorp (cdr cell))
                (assq save-place-alist-key (aref (cdr cell) 0)))
-      (funcall bookmark-jump-function
-               (cdr (assq save-place-alist-key (aref (cdr cell) 0)))))
+      (save-window-excursion
+        (funcall bookmark-jump-function
+                 (cdr (assq save-place-alist-key (aref (cdr cell) 0))))))
     (setq save-place-mode t)))
 
 (defun saveplace-pdf-view-to-alist (save-place-alist-key make-record-function)
