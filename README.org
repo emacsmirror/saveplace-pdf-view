@@ -24,6 +24,8 @@ Save a copy of the code locally, and add it to your =load-path=.
 Simply require the package in your init file, and make sure
 =save-place= is enabled.
 
+** Using =require=
+
 #+BEGIN_SRC elisp
 (require 'saveplace-pdf-view)
 (save-place-mode 1)
@@ -37,6 +39,14 @@ need to load the =bookmark= package as well:
 (require 'saveplace-pdf-view)
 (save-place-mode 1)
 #+END_SRC
+
+** Using =use-package=
+
+#+begin_src elisp
+(use-package saveplace-pdf-view
+  :after (:any doc-view pdf-tools)
+  :demand t)
+#+end_src
 
 * Similar Packages
 
